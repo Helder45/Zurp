@@ -1,22 +1,18 @@
 const checkOutBtn = document.getElementById("checkOutBtn");
 
-window.onload = deleteExecution;
+window.onload = deleteExecution, addTotal;
+// window.onload = addTotal;
 
 const itemsTotal = document.getElementById("itemsTotal");
 const products = document.getElementsByClassName("card");
 deleteBtns = document.getElementsByClassName("deleteBtn");
 
-itemsTotal.addEventListener("load", () => {
-  //por localStorage o LocalStorage que vai ser responsavel por navegar dados entre paginas
-  //isso mesmo
+itemsTotal.addEventListener("load", addTotal());
 
-  //certo então quando clicar em comprar vou estar colocando no local storage?
-  //ata blz
-  //vou estar fazendo aqui então
-  //blz, bom trabalho meu mano
-  // deixa eu comm
-  mitar primeiro
-});
+function addTotal() {
+  console.log(products);
+  itemsTotal.textContent = `Total de produtos: ${products.length}.`;
+}
 
 function deleteExecution() {
   for (i = 0; i < deleteBtns.length; i++) {
@@ -36,6 +32,7 @@ function removeCard(element) {
     objclone = deleteBtns[i].cloneNode(true);
     deleteBtns[i].parentNode.replaceChild(objclone, deleteBtns[i]);
   }
+  addTotal();
   deleteExecution();
 }
 
