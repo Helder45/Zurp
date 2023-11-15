@@ -1,27 +1,38 @@
 function adicionarCarrinho(botao){
     let nomeProduto = botao.parentElement.parentElement.querySelector('.card-title')
-    let precoProduto = botao.parentElement.parentElement.querySelector('.text-title')
+    let precoProduto = botao.parentElement.parentElement.querySelector('.preco')
 
-    nomeProduto = nomeProduto.innerText
-    nomeProduto = precoProduto.innerText
-
-    adicionarLocalStorage('carrinho',nomeProduto,precoProduto)
+    adicionarLocalStorage('carrinho',nomeProduto.innerText,precoProduto.innerText)
 }
 
 function adicionarfavorito(botao){
     let nomeProduto = botao.parentElement.parentElement.querySelector('.card-title')
-    let precoProduto = botao.parentElement.parentElement.querySelector('.text-title')
+    let precoProduto = botao.parentElement.parentElement.querySelector('.preco')
 
-    adicionarLocalStorage('favorito',nomeProduto,precoProduto)
+    adicionarLocalStorage('favorito',nomeProduto.innerText,precoProduto.innerText)
 }
 
 function adicionarLocalStorage(tipo,nome,preco){
 
-    let array = []
-    array.push(nome,preco)
+    arrayArmazenado = JSON.parse(localStorage.getItem(tipo));
 
-    console.log(array)
+    if (arrayArmazenado === null){
+    
+        let array= []
 
-    localStorage.setItem(tipo, JSON.stringify(array));
+        array.push({nome,preco})
+
+        localStorage.setItem(tipo, JSON.stringify(array));
+    }
+
+    else{
+        const produtoDuplicado = arrayArmazenado.find(element =>element.nome ===  nome && element.preco === preco)
+
+        if(!produtoDuplicado){
+
+            arrayArmazenado.push({nome,preco})
+
+            localStorage.setItem(tipo, JSON.stringify(arrayArmazenado));
+        }
+    } 
 }
-
