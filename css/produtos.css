@@ -4,16 +4,96 @@
 }
 
 body{
-    background-color: rgb(35, 34, 34);
-    background-blend-mode: multiply;
-    background-position: center;
-    background-size: cover; 
-    background-repeat: no-repeat;
+    background: radial-gradient(circle at 300%, #333, #555 50%, #ddd 70%, #333 55%);
 }
-
+/* Titulo Zarp */
+.empresa{
+    color: black;
+    background-color: yellow;
+    border-radius: 2rem;
+}
+  
 @media(max-width:991px){
-    .siderbar{
-        background-color: rgba(255,255,255, 0.15);
+    .sidebar{
+        background-color: rgba(204, 194, 194, 0.15);
         backdrop-filter: blur(10px);
     }
+}
+/* Botão do usuário de sair */
+.sair{
+    background-color:#c2bf14;
+}
+
+main{
+    margin-top: 7rem;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20rem;
+}
+
+/* Card */
+.row{
+    margin-top: 100px;
+}
+
+.card img{
+    width: 100%;
+}
+.botao{
+    width: 100%;
+}
+
+.botao button{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+.botao i img{
+    margin-bottom: 3px;
+}
+
+.card{
+    box-shadow: 0px 2px 5px black;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: translateY(-15px);
+}
+
+.checked{
+    color: rgba(255,196,0);
+}
+
+/* Footer */
+.redes_sociais a{
+    border:none;
+    transition: transform 0.60s;
+}
+.redes_sociais a:hover{
+    background-color: #c2bf14;
+    transform: translateY(-6px);
+}
+
+.navegacao a{
+    transition: border-bottom 0.5s;
+    border-bottom: 5px solid transparent;
+}
+.navegacao a:hover{
+    border-bottom: 5px solid #ffdf00;
+    transition: border-bottom 0.5s;
+}
+
+.titulo h1{
+    background-color: black;
 }
