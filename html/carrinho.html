@@ -76,97 +76,58 @@
     </nav>
   </header>
 
-  <main>
+  <main id="principal">
     <div class="container">
-      <div class="row mx-auto w-50">
-        <div class="col">
-          <div class="card my-2">
-            <div class="card-body">
-              <h5 class="card-title">Produto 1</h5>
-              <p class="card-text">Preço: R$ 99,99</p>
-              <button class="btn btn-danger deleteBtn">Excluir</button>
-            </div>
-          </div>
-          <div class="card my-2">
-            <div class="card-body">
-              <h5 class="card-title">Produto 2</h5>
-              <p class="card-text">Preço: R$ 99,99</p>
-              <button class="btn btn-danger deleteBtn">Excluir</button>
-            </div>
-          </div>
-          <div class="card my-2">
-            <div class="card-body">
-              <h5 class="card-title">Produto 3</h5>
-              <p class="card-text">Preço: R$ 99,99</p>
-              <button class="btn btn-danger deleteBtn">Excluir</button>
-            </div>
-          </div>
-          <div class="card my-2">
-            <div class="card-body">
-              <h5 class="card-title">Produto 4</h5>
-              <p class="card-text">Preço: R$ 99,99</p>
-              <button class="btn btn-danger deleteBtn">Excluir</button>
-            </div>
-          </div>
-          <div class="card my-2">
-            <div class="card-body">
-              <h5 class="card-title">Produto 5</h5>
-              <p class="card-text">Preço: R$ 99,99</p>
-              <button class="btn btn-danger deleteBtn">Excluir</button>
-            </div>
-          </div>
-          <div class="card my-2">
-            <div class="card-body">
-              <h5 class="card-title">Produto 6</h5>
-              <p class="card-text">Preço: R$ 99,99</p>
-              <button class="btn btn-danger deleteBtn">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mx-auto mt-0 mb-3 w-50">
-        <div class="col">
-          <div class="alert alert-grey"
-            id="niceAlert"
-            role="alert">
-            <p id="itemsTotal"
-              class="text-center fs-4"></p>
-
-            <form>
-              <div class="d-flex flex-row">
-                <div class="input-group mb-3 mx-1">
-                  <input name="cep"
-                    id="cep"
-                    type="text"
-                    class="form-control"
-                    placeholder="Digite seu CEP"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                  <button class="btn btn-outline-success"
-                    type="button"
-                    id="button-addon2">Enviar</button>
-                </div>
-                <div class="input-group mb-3 mx-1">
-                  <input name="coupon"
-                    id="coupon"
-                    type="text"
-                    class="form-control"
-                    placeholder="Insira um cupom"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                  <button class="btn btn-outline-success"
-                    type="button"
-                    id="button-addon2">Enviar</button>
-                </div>
-              </div>
-              <button class="btn btn-success w-100"
-                id="checkOutBtn">Finalizar Compra</button>
-            </form>
-          </div>
+      <div class="row w-50 mx-auto">
+        <div class="col" id="coluna">
         </div>
       </div>
     </div>
   </main>
+
+  <aside class="container">
+    <div class="row mx-auto mt-0 mb-3 w-50 alertWidth">
+      <div class="col">
+        <div class="alert alert-grey"
+          id="niceAlert"
+          role="alert">
+          <p id="itemsTotal"
+            class="text-center fs-4"></p>
+
+          <form>
+            <div class="d-flex flex-row">
+              <div class="input-group mb-3 mx-1">
+                <input name="cep"
+                  id="cep"
+                  type="text"
+                  class="form-control"
+                  placeholder="Digite seu CEP"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2">
+                <button class="btn btn-outline-success"
+                  type="button"
+                  id="button-addon2">Enviar</button>
+              </div>
+              <div class="input-group mb-3 mx-1">
+                <input name="coupon"
+                  id="coupon"
+                  type="text"
+                  class="form-control"
+                  placeholder="Insira um cupom"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2">
+                <button class="btn btn-outline-success"
+                  type="button"
+                  id="button-addon2">Enviar</button>
+              </div>
+            </div>
+            <button class="btn btn-success w-100"
+              id="checkOutBtn">Finalizar Compra</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <footer class="bg-dark text-white py-5 mt-5 ">
     <div class="d-flex justify-content-center redes_sociais">

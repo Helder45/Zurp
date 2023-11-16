@@ -33,6 +33,8 @@ function adicionarLocalStorage(tipo,nome,preco){
             arrayArmazenado.push({nome,preco})
 
             localStorage.setItem(tipo, JSON.stringify(arrayArmazenado));
+        } else {
+            alert(`Este produto já foi adicionado no ${tipo}`);
         }
     } 
 }

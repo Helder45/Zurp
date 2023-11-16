@@ -102,3 +102,9 @@ main{
     background-color: rgba(167, 165, 165, 0.15) !important;
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.15) !important;
 }
+
+.alertWidth{
+
+    width: 50vh;
+
+}
