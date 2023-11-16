@@ -18,7 +18,7 @@ function deleteExecution() {
 
 function removeCard(element) {
   console.log(element);
-  deleteBtns[element].parentNode.parentNode.parentNode.remove();
+  deleteBtns[element].parentNode.parentNode.remove();
 
   for (i = 0; i < deleteBtns.length; i++) {
     objclone = deleteBtns[i].cloneNode(true);
@@ -28,7 +28,6 @@ function removeCard(element) {
 }
 
 function pegarLocalStorage() {
-  //Mudar estrutura HTML, para grid
   const coluna = document.getElementById("coluna");
 
   let itemsLocalStorage = JSON.parse(localStorage.getItem("favorito"));
