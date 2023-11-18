@@ -3,8 +3,13 @@
     padding: 0;
 }
 
+html{
+    height: 100%;
+}
+
 body{
     background: radial-gradient(circle at 300%, #333, #555 50%, #ddd 70%, #333 55%);
+    height: 100%;
 }
 /* Titulo Zarp */
 .empresa{
@@ -25,6 +30,7 @@ body{
 }
 
 main{
+    min-height: 100%;
     margin-top: 7rem;
 }
 
@@ -96,4 +102,9 @@ main{
 
 .titulo h1{
     background-color: black;
+}
+
+.cont{
+    position: relative;
+    background: #fcfcfc;
 }
