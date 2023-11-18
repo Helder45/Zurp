@@ -38,3 +38,11 @@ function adicionarLocalStorage(tipo,nome,preco){
         }
     } 
 }
+
+function alterarNome(){
+    const nomeDeLogin = "Enzo"
+    const nome = document.getElementById("nome")
+    nome.innerHTML = `Olá, ${nomeDeLogin}`
+}
+
+alterarNome()
