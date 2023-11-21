@@ -51,4 +51,10 @@ function alterarNome(){
     }
 }
 
+function sair(user) {
+
+    localStorage.removeItem(user);
+
+}
+
 alterarNome()
