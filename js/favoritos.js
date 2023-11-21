@@ -1,40 +1,47 @@
-window.onload = deleteExecution;
-
-let deleteBtns = document.getElementsByClassName("deleteBtn");
-
 document
   .getElementById("principal")
-  .addEventListener("load", pegarLocalStorage());
+  .addEventListener("load", validarVazio());
 
-function deleteExecution() {
-  for (i = 0; i < deleteBtns.length; i++) {
-    (function (index) {
-      deleteBtns[i].addEventListener("click", function () {
-        removeCard(index);
+function apagarCard(botao){
+  botao.parentNode.parentNode.remove();
+  atualizarLocalStorage();
+}
+
+function atualizarLocalStorage() {
+
+  const itemsFavorito = document.getElementById("coluna");
+  const items = [];
+
+  for (let i = 0; i < itemsFavorito.children.length; i++) {
+      const item = itemsFavorito.children[i]; 
+      items.push({
+          nome: item.firstChild.firstChild.textContent,
+          preco: item.firstChild.children[1].textContent
       });
-    })(i);
   }
+
+  localStorage.setItem("favorito", JSON.stringify(items));
 }
 
-function removeCard(element) {
-  console.log(element);
-  deleteBtns[element].parentNode.parentNode.remove();
+function validarVazio() {
 
-  for (i = 0; i < deleteBtns.length; i++) {
-    objclone = deleteBtns[i].cloneNode(true);
-    deleteBtns[i].parentNode.replaceChild(objclone, deleteBtns[i]);
+  let itensLocalStorage = JSON.parse(localStorage.getItem("favorito"));
+
+  if (itensLocalStorage === null || itensLocalStorage.length === 0) {
+    alert("Não há itens nos favoritos!");
+  } else {
+    pegarLocalStorage();
   }
-  deleteExecution();
+
+
 }
+
 
 function pegarLocalStorage() {
   const coluna = document.getElementById("coluna");
 
   let itemsLocalStorage = JSON.parse(localStorage.getItem("favorito"));
 
-  if (itemsLocalStorage === null) {
-    alert("Não há itens nos favoritos!");
-  } else {
     for (let items = 0; items < itemsLocalStorage.length; items++) {
       //creating elements
       let cardDiv = document.createElement("div");
@@ -54,6 +61,8 @@ function pegarLocalStorage() {
 
       cardBtn.setAttribute("class", "btn btn-danger deleteBtn");
 
+      cardBtn.setAttribute("onclick", "apagarCard(this)")
+
       cardBtn.textContent = "Excluir";
 
       cardTitle.textContent = itemsLocalStorage[items].nome;
@@ -65,5 +74,4 @@ function pegarLocalStorage() {
       cardDiv.appendChild(cardBodyDiv);
       coluna.appendChild(cardDiv);
     }
-  }
 }
