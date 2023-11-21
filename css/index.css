@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 .container {
-  width: 100% !important;
+  width: 75% !important;
 }
 
 .posicaoContainer {
@@ -16,8 +16,11 @@ body {
 }
 
 @media (max-width: 1000px) {
+  .container {
+    width: 100% !important;
+  }
   .posicaoContainer {
     width: 100% !important;
-    font-size: 25px;
+    font-size: 18px;
   }
 }
