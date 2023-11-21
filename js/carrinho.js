@@ -1,6 +1,6 @@
 const checkOutBtn = document.getElementById("checkOutBtn");
 
-(window.onload = deleteExecution), addTotal;
+window.onload = addTotal;
 
 document
   .getElementById("principal")
@@ -9,33 +9,32 @@ document
 const itemsTotal = document.getElementById("itemsTotal");
 const products = document.getElementsByClassName("card");
 
-let deleteBtns = document.getElementsByClassName("deleteBtn");
-
-itemsTotal.addEventListener("load", addTotal());
-
 function addTotal() {
   itemsTotal.textContent = `Total de produtos: ${products.length}.`;
 }
 
-function deleteExecution() {
-  for (i = 0; i < deleteBtns.length; i++) {
-    (function (index) {
-      deleteBtns[i].addEventListener("click", function () {
-        removeCard(index);
-      });
-    })(i);
-  }
+function apagarCard(botao){
+  botao.parentNode.parentNode.remove();
+  addTotal();
+  atualizarLocalStorage();
 }
 
-function removeCard(element) {
-  deleteBtns[element].parentNode.parentNode.remove();
+function atualizarLocalStorage() {
 
-  for (i = 0; i < deleteBtns.length; i++) {
-    objclone = deleteBtns[i].cloneNode(true);
-    deleteBtns[i].parentNode.replaceChild(objclone, deleteBtns[i]);
+  const itemscarrinho = document.getElementById("coluna");
+  const items = [];
+
+  console.log(itemscarrinho);
+
+  for (let i = 0; i < itemscarrinho.children.length; i++) {
+      const item = itemscarrinho.children[i];
+      items.push({
+          nome: item.textContent,
+          concluida: item.classList.contains("concluida")
+      });
   }
-  addTotal();
-  deleteExecution();
+
+  localStorage.setItem("carrinho", JSON.stringify(items));
 }
 
 checkOutBtn.addEventListener("click", (e) => {
@@ -49,7 +48,7 @@ function pegarLocalStorage() {
 
   let itemsLocalStorage = JSON.parse(localStorage.getItem("carrinho"));
 
-  if (itemsLocalStorage === null) {
+  if (itemsLocalStorage === null || itemsLocalStorage.length === 0) {
     alert("Não há itens no carrinho!");
   } else {
     for (let items = 0; items < itemsLocalStorage.length; items++) {
@@ -70,6 +69,8 @@ function pegarLocalStorage() {
       cardText.setAttribute("class", "card-text");
 
       cardBtn.setAttribute("class", "btn btn-danger deleteBtn");
+
+      cardBtn.setAttribute("onclick", "apagarCard(this)")
 
       cardBtn.textContent = "Excluir";
 
