@@ -6,13 +6,13 @@
 body{
     background: radial-gradient(circle at 300%, #333, #555 50%, #ddd 70%, #333 55%);
 }
-/* Titulo Zarp */
+/* Titulo Zurp */
 .empresa{
     color: black;
     background-color: yellow;
     border-radius: 2rem;
 }
-  
+ 
 @media(max-width:991px){
     .sidebar{
         background-color: rgba(204, 194, 194, 0.15);

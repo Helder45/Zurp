@@ -1,15 +1,25 @@
-*{
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
 }
-html, body{
-    height: 100%;
+.container {
+  max-width: 350px;
+  padding: 1rem;
+}
+u {
+  color: orange;
+}
+
+.posicaoContainer {
+  width: 50% !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 1080px) {
+  .posicaoContainer {
+    width: 100% !important;
   }
-  .container{
-    max-width: 350px;
-    padding: 1rem;
-  }
-  u{
-    color: orange;
-  }
-/*Okay, its time to do some work 😁*/
+}
