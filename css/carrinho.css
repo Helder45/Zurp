@@ -56,8 +56,14 @@ main{
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.15) !important;
 }
 
-.alertWidth{
-    width: 50vh;
+.widthPersonalizado{
+    width: 50%;
+}
+
+@media(max-width:1030px){
+    .widthPersonalizado{
+        width: 100%;
+    }
 }
 
 footer{

@@ -51,6 +51,16 @@ main{
     background-color: black;
 }
 
+.widthPersonalizado{
+    width: 50%;
+}
+
+@media(max-width:1030px){
+    .widthPersonalizado{
+        width: 100%;
+    }
+}
+
 footer{
     position: relative;
 }
