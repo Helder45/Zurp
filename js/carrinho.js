@@ -1,13 +1,13 @@
 const checkOutBtn = document.getElementById("checkOutBtn");
+const itemsTotal = document.getElementById("itemsTotal");
+const products = document.getElementsByClassName("card");
 
 window.onload = addTotal;
 
 document
   .getElementById("principal")
-  .addEventListener("load", pegarLocalStorage());
+  .addEventListener("load", validarVazio());
 
-const itemsTotal = document.getElementById("itemsTotal");
-const products = document.getElementsByClassName("card");
 
 function addTotal() {
   itemsTotal.textContent = `Total de produtos: ${products.length}.`;
@@ -21,16 +21,14 @@ function apagarCard(botao){
 
 function atualizarLocalStorage() {
 
-  const itemscarrinho = document.getElementById("coluna");
+  const itemsCarrinho = document.getElementById("coluna");
   const items = [];
 
-  console.log(itemscarrinho);
-
-  for (let i = 0; i < itemscarrinho.children.length; i++) {
-      const item = itemscarrinho.children[i];
+  for (let i = 0; i < itemsCarrinho.children.length; i++) {
+      const item = itemsCarrinho.children[i]; 
       items.push({
-          nome: item.textContent,
-          concluida: item.classList.contains("concluida")
+          nome: item.firstChild.firstChild.textContent,
+          preco: item.firstChild.children[1].textContent
       });
   }
 
@@ -40,7 +38,11 @@ function atualizarLocalStorage() {
 checkOutBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  alert("Processando... Você será redirecionado em instantes!");
+  if (products.length === 0) {
+    alert("Adicione itens no carrinho para poder prosseguir!");
+  } else{
+    alert("Processando... Você será redirecionado em instantes!");
+  }
 });
 
 function pegarLocalStorage() {
@@ -48,9 +50,6 @@ function pegarLocalStorage() {
 
   let itemsLocalStorage = JSON.parse(localStorage.getItem("carrinho"));
 
-  if (itemsLocalStorage === null || itemsLocalStorage.length === 0) {
-    alert("Não há itens no carrinho!");
-  } else {
     for (let items = 0; items < itemsLocalStorage.length; items++) {
       //creating elements
       let cardDiv = document.createElement("div");
@@ -74,14 +73,27 @@ function pegarLocalStorage() {
 
       cardBtn.textContent = "Excluir";
 
+      //putting the values into the variables
       cardTitle.textContent = itemsLocalStorage[items].nome;
       cardText.textContent = itemsLocalStorage[items].preco;
 
+      //putting together all elements
       cardBodyDiv.appendChild(cardTitle);
       cardBodyDiv.appendChild(cardText);
       cardBodyDiv.appendChild(cardBtn);
       cardDiv.appendChild(cardBodyDiv);
       coluna.appendChild(cardDiv);
     }
+}
+
+function validarVazio() {
+
+  let itensLocalStorage = JSON.parse(localStorage.getItem("carrinho"));
+
+  if (itensLocalStorage === null || itensLocalStorage.length === 0) {
+    alert("Não há itens no carrinho!");
+  } else {
+    pegarLocalStorage();
   }
+
 }

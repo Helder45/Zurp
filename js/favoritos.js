@@ -33,7 +33,6 @@ function validarVazio() {
     pegarLocalStorage();
   }
 
-
 }
 
 
