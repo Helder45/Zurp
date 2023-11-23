@@ -1,10 +1,3 @@
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-/* Truque para footer ficar em baixo de todo jeito */
 html {
     position: relative;
     min-height: 100%;
@@ -15,7 +8,6 @@ body{
     margin: 0 0 250px;
     padding: 25px;
 }
-
 /* Titulo Zurp */
 .empresa{
     color: black;
@@ -31,14 +23,6 @@ body{
 }
 
 /* Footer */
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    overflow: hidden;
-}
-
 .redes_sociais a{
     border:none;
     transition: transform 0.60s;
@@ -64,8 +48,8 @@ footer {
 }
 
 .alert-grey{
-    background-color: rgba(167, 165, 165, 0.15);
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.15);
+    background-color: rgba(167, 165, 165, 0.15) !important;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.15) !important;
 }
 
 .widthPersonalizado{
@@ -76,4 +60,12 @@ footer {
     .widthPersonalizado{
         width: 100%;
     }
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
 }

@@ -1,10 +1,19 @@
-html{
-    height: 100%;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Truque para footer ficar em baixo de todo jeito */
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 body{
     background: radial-gradient(circle at 300%, #333, #555 50%, #ddd 70%, #333 55%);
-    height: 100%;
+    margin: 0 0 250px;
+    padding: 25px;
 }
 
 /* Titulo Zurp */
@@ -13,7 +22,7 @@ body{
     background-color: yellow;
     border-radius: 2rem;
 }
-
+ 
 @media(max-width:991px){
     .sidebar{
         background-color: rgba(204, 194, 194, 0.15);
@@ -21,12 +30,15 @@ body{
     }
 }
 
-/* Altura mínima do conteúdo principal */
-main{
-    min-height: 100%;
+/* Footer */
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Footer */
 .redes_sociais a{
     border:none;
     transition: transform 0.60s;
@@ -59,8 +71,4 @@ main{
     .widthPersonalizado{
         width: 100%;
     }
-}
-
-footer{
-    position: relative;
 }
