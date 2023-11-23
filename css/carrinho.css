@@ -16,6 +16,14 @@ body{
     padding: 25px;
 }
 
+@media(max-width:375px){
+    body{
+        margin: 0 0 300px;
+        padding-bottom: 30px;
+    }
+}
+
+
 /* Titulo Zurp */
 .empresa{
     color: black;
